@@ -245,9 +245,12 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .amp::before,.amp::after{content:'';position:absolute;top:50%;width:26px;height:1px;background:var(--gold-dim);opacity:0.5;}
 .amp::before{right:calc(100% + 11px);}
 .amp::after{left:calc(100% + 11px);}
-.hero-tagline{font-size:clamp(1.05rem,2.4vw,1.25rem);font-weight:300;font-style:italic;color:var(--cream-dim);margin-top:1.8rem;opacity:0;letter-spacing:0.02em;}
+.hero-tagline{font-size:clamp(1.05rem,2.4vw,1.25rem);font-weight:300;font-style:italic;color:var(--cream-dim);margin-top:1.8rem;opacity:0;letter-spacing:0.02em;margin-bottom:1.6rem;}
 .hero-tagline.go{animation:fadeUp 1.6s ease forwards;}
-.hero-date{font-family:var(--sans);font-weight:300;font-size:0.7rem;letter-spacing:0.38em;text-transform:uppercase;color:var(--gold-dim);margin-top:0.5rem;opacity:0;}
+.hero-date{font-family:var(--sans);font-weight:300;font-size:0.7rem;letter-spacing:0.38em;text-transform:uppercase;color:var(--gold-dim);margin-top:0.5rem;margin-bottom:0;opacity:0;}
+.hero-time{font-family:var(--sans);font-weight:200;font-size:0.58rem;letter-spacing:0.42em;text-transform:uppercase;color:var(--gold);margin-top:0.2rem;margin-bottom:1.2rem;opacity:0;}
+.hero-time{opacity:0;}
+.hero-time.go{animation:fadeUp 1.6s ease forwards;}
 .hero-date.go{animation:fadeUp 1.6s ease forwards;}
 
 /* Hero countdown — ONE only, in the hero */
@@ -294,6 +297,17 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .q-mark{font-family:var(--serif);font-size:6rem;font-weight:400;font-style:italic;color:var(--gold-dim);line-height:0.3;display:block;margin-bottom:1.8rem;opacity:0.65;}
 .q-text{font-family:var(--play);font-size:clamp(1.6rem,4.2vw,2.3rem);font-weight:400;font-style:italic;line-height:2.0;color:var(--cream);max-width:520px;margin:0 auto;letter-spacing:0.01em;}
 .q-attr{font-family:var(--sans);font-weight:300;font-size:0.65rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold-dim);margin-top:2rem;display:block;}
+
+.venue-time{
+  font-family:var(--sans);
+  font-weight:200;
+  font-size:0.58rem;
+  letter-spacing:0.45em;
+  text-transform:uppercase;
+  color:var(--gold);
+  display:block;
+  margin-bottom:1.2rem;
+}
 
 /* VENUE */
 .venue-name-large{font-family:var(--serif);font-size:clamp(1.6rem,4.2vw,2.4rem);font-weight:300;font-style:italic;color:var(--cream);display:block;margin-bottom:0.6rem;letter-spacing:0.03em;}
@@ -630,6 +644,7 @@ footer{text-align:center;padding:3rem 0 4rem;font-family:var(--sans);font-size:0
   <h1 class="name-hero" id="h7" style="animation-delay:1.4s;">Naveena A.S</h1>
   <p class="hero-tagline" id="h8" style="animation-delay:1.7s;">are joyfully engaged</p>
   <p class="hero-date" id="h9" style="animation-delay:1.9s;">Saturday · 12 September · 2026</p>
+  <p class="hero-time" id="h9t" style="animation-delay:2.1s;">11:00 AM &nbsp;·&nbsp; 12:00 PM</p>
   <!-- Single countdown — hero only -->
   <p style="font-family:var(--sans);font-weight:100;font-size:0.5rem;letter-spacing:0.55em;text-transform:uppercase;color:var(--gold-dim);margin-top:2.8rem;opacity:0;" id="hcdLbl">Countdown to the Celebration</p>
   <div class="hero-cd" id="heroCd" style="animation-delay:2.1s;">
@@ -1562,6 +1577,7 @@ footer{text-align:center;padding:3rem 0 4rem;font-family:var(--sans);font-size:0
   <div class="rule"><span class="rule-gem"></span></div><br/><br/>
   <span class="sec-lbl">The Celebration</span>
   <span class="venue-name-large">Saturday, 12 September 2026</span>
+  <span class="venue-time">11:00 AM &nbsp;·&nbsp; 12:00 PM</span>
   <p class="loc-body">Join us as we take our very first step<br/>into this beautiful journey together.</p>
   <span class="venue-address">
     Dass Continental, Thrissur, Kerala, India
@@ -1802,7 +1818,7 @@ document.getElementById('openBtn').addEventListener('click',()=>{
       {id:'h3',c:'pre-name go',d:0.5},{id:'h4',c:'name-hero go',d:0.7},
       {id:'h5',c:'amp-row go',d:0.9},{id:'h6',c:'pre-name go',d:1.0},
       {id:'h7',c:'name-hero go',d:1.2},{id:'h8',c:'hero-tagline go',d:1.5},
-      {id:'h9',c:'hero-date go',d:1.7},{id:'hcdLbl',c:'hcd-label go',d:1.8},{id:'heroCd',c:'hero-cd go',d:1.9},
+      {id:'h9',c:'hero-date go',d:1.7},{id:'h9t',c:'hero-time go',d:1.9},{id:'hcdLbl',c:'hcd-label go',d:2.1},{id:'heroCd',c:'hero-cd go',d:1.9},
       {id:'h10',c:'scroll-cue go',d:2.6},
     ];
     items.forEach(({id,c,d})=>{const el=document.getElementById(id);if(!el)return;if(d)el.style.animationDelay=d+'s';el.className=c;});
