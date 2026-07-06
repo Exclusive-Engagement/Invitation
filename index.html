@@ -6,7 +6,7 @@
 <title>Divendu &amp; Naveena — Engagement</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Cinzel:wght@300;400;500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Montserrat:wght@100;200;300;400&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Montserrat:wght@100;200;300;400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
@@ -26,6 +26,8 @@ html{scroll-behavior:smooth;}
 body{background:var(--black);color:var(--cream);font-family:var(--serif);overflow:hidden;}
 body.unlocked{overflow-x:hidden;overflow-y:auto;}
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.6;}
+
+
 
 /* ══ ENVELOPE LANDING ══ */
 #envelope-scene{
@@ -257,7 +259,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .hero-cd-lbl{font-family:var(--sans);font-weight:300;font-size:0.56rem;letter-spacing:0.34em;text-transform:uppercase;color:var(--gold-dim);}
 .hero-cd-sep{font-family:var(--serif);font-size:2rem;color:var(--gold-dim);opacity:0.3;align-self:center;padding-bottom:1.1rem;}
 
-.scroll-cue{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.4rem;opacity:0;}
+.scroll-cue{position:absolute;bottom:0.3rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.4rem;opacity:0;}
 .scroll-cue.go{animation:fadeIn 1s ease forwards;}
 .scroll-cue span{font-family:var(--sans);font-size:0.62rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--cream);font-weight:300;}
 .scroll-cue::after{content:'';width:1px;height:38px;background:linear-gradient(to bottom,var(--gold-dim),transparent);animation:sPulse 2.8s ease-in-out infinite;}
@@ -314,11 +316,25 @@ footer{text-align:center;padding:3rem 0 4rem;font-family:var(--sans);font-size:0
 @keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
 @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
 @keyframes sPulse{0%,100%{opacity:0.2;}50%{opacity:0.85;}}
-.reveal{opacity:0;transform:translateY(30px);transition:opacity 1.4s ease,transform 1.4s ease;}
+.reveal{opacity:0;transform:translateY(24px) scale(0.99);transition:opacity 1.5s cubic-bezier(0.22,1,0.36,1),transform 1.5s cubic-bezier(0.22,1,0.36,1);}
 .reveal.visible{opacity:1;transform:none;}
 .reveal-slow{transition-duration:1.8s;transition-delay:0.15s;}
 @media(max-width:500px){.page{padding:0 2rem;}.hero{padding:6rem 0 5rem;}.section-wrap{padding:4.5rem 0;}.hero-cd{gap:0.8rem;}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}.reveal{opacity:1;transform:none;}#starCanvas,#ringCanvas,#envCanvas{display:none;}}
+
+
+/* ══ MONOGRAM WATERMARK ══ */
+.monogram-watermark{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  font-family:var(--play);font-size:clamp(8rem,25vw,14rem);
+  font-weight:400;font-style:italic;
+  color:rgba(201,169,110,0.03);
+  pointer-events:none;z-index:0;
+  letter-spacing:-0.02em;
+  user-select:none;
+  white-space:nowrap;
+}
 
 /* ══ STORY SECTION ══ */
 .story-section{padding:2.5rem 0 2rem;text-align:center;}
@@ -328,10 +344,10 @@ footer{text-align:center;padding:3rem 0 4rem;font-family:var(--sans);font-size:0
 .story-card.active{display:flex;}
 .story-card.sin-r{animation:sinR 0.75s cubic-bezier(0.22,1,0.36,1) forwards;}
 .story-card.sin-l{animation:sinL 0.75s cubic-bezier(0.22,1,0.36,1) forwards;}
-@keyframes sinR{from{opacity:0;transform:translateX(55px);}to{opacity:1;transform:translateX(0);}}
-@keyframes sinL{from{opacity:0;transform:translateX(-55px);}to{opacity:1;transform:translateX(0);}}
+@keyframes sinR{from{opacity:0;transform:translateX(40px);filter:brightness(1.4);}to{opacity:1;transform:translateX(0);filter:brightness(1);}}
+@keyframes sinL{from{opacity:0;transform:translateX(-40px);filter:brightness(1.4);}to{opacity:1;transform:translateX(0);filter:brightness(1);}}
 .story-art{width:min(340px,94vw);position:relative;border:1px solid rgba(201,169,110,0.18);background:#05040a;overflow:hidden;}
-.story-art::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 65%,rgba(5,4,10,0.98) 100%);z-index:2;pointer-events:none;}
+.story-art::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 45%,rgba(5,4,10,0.55) 100%),linear-gradient(to bottom,transparent 60%,rgba(5,4,10,0.98) 100%);z-index:2;pointer-events:none;}
 .sart{display:block;width:100%;height:auto;position:relative;z-index:1;}
 .story-caption{position:absolute;bottom:0;left:0;right:0;z-index:3;padding:0.5rem 1rem 0.8rem;text-align:center;}
 .story-caption-loc{font-family:var(--sans);font-weight:200;font-size:0.44rem;letter-spacing:0.55em;text-transform:uppercase;color:var(--gold);display:block;}
@@ -347,9 +363,113 @@ footer{text-align:center;padding:3rem 0 4rem;font-family:var(--sans);font-size:0
 .snav-btn{width:42px;height:42px;border-radius:50%;border:1px solid rgba(201,169,110,0.22);background:rgba(5,4,10,0.7);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color 0.3s;}
 .snav-btn:hover{border-color:var(--gold);}
 
+
+/* ══ NAME HALO PARTICLES ══ */
+.name-halo{position:absolute;pointer-events:none;z-index:1;inset:0;}
+.name-halo span{
+  position:absolute;width:2px;height:2px;border-radius:50%;
+  background:var(--gold);opacity:0;
+  animation:haloFloat linear infinite;
+}
+@keyframes haloFloat{
+  0%{opacity:0;transform:translate(0,0) scale(1);}
+  15%{opacity:0.75;}
+  85%{opacity:0.2;}
+  100%{opacity:0;transform:translate(var(--tx),var(--ty)) scale(0);}
+}
+
+/* ══ TABULAR NUMERALS ══ */
+.hcd-num,.env-cd-num,.env-date-day{
+  font-variant-numeric:tabular-nums;
+  font-feature-settings:"tnum";
+}
+
+
+/* ══ CINEMATIC LETTER REVEAL ══ */
+.name-hero{
+  overflow:visible;
+  position:relative;
+}
+.name-hero.go{
+  animation:nameReveal 1.4s cubic-bezier(0.22,1,0.36,1) both;
+}
+@keyframes nameReveal{
+  from{opacity:0;transform:translateY(18px) skewY(2deg);filter:blur(4px);}
+  to{opacity:1;transform:translateY(0) skewY(0deg);filter:blur(0);}
+}
+
+/* ══ FLOATING GOLD DUST (ambient) ══ */
+.gold-dust{
+  position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden;
+}
+.gold-dust-p{
+  position:absolute;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(201,169,110,0.8),transparent);
+  animation:dustFloat linear infinite;
+  pointer-events:none;
+}
+@keyframes dustFloat{
+  0%{transform:translateY(100vh) rotate(0deg);opacity:0;}
+  10%{opacity:1;}
+  90%{opacity:0.3;}
+  100%{transform:translateY(-20vh) rotate(720deg);opacity:0;}
+}
+
+
+/* ══ AMBIENT VIGNETTE overlay ══ */
+#invitation::before{
+  content:'';
+  position:fixed;inset:0;z-index:1;
+  pointer-events:none;
+  background:radial-gradient(ellipse at center, transparent 50%, rgba(5,4,10,0.65) 100%);
+}
+
+/* ══ REFINED SCROLLBAR ══ */
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-track{background:var(--black);}
+::-webkit-scrollbar-thumb{background:var(--gold-dim);border-radius:2px;}
+
+/* ══ SECTION GOLD RULE ══ */
+.sec-gold-rule{
+  display:block;width:60px;height:1px;
+  background:linear-gradient(to right,transparent,var(--gold),transparent);
+  margin:1rem auto;
+  animation:ruleExpand 1.2s ease both;
+}
+@keyframes ruleExpand{from{width:0;opacity:0;}to{width:60px;opacity:1;}}
+
+/* ══ GLOWING QUOTE ══ */
+.q-text{
+  text-shadow:0 0 40px rgba(201,169,110,0.15);
+}
+
+/* ══ PREMIUM STORY CARD ══ */
+.story-art{
+  box-shadow:
+    0 0 0 1px rgba(201,169,110,0.18),
+    0 20px 60px rgba(0,0,0,0.6),
+    0 0 80px rgba(201,169,110,0.04);
+}
+
+/* ══ HERO BACKGROUND BREATHING ══ */
+#starCanvas{
+  animation:canvasBreathe 8s ease-in-out infinite;
+}
+@keyframes canvasBreathe{
+  0%,100%{opacity:0.95;}
+  50%{opacity:1;}
+}
+
+/* ══ VENUE GLOW ══ */
+.venue-name-large{
+  text-shadow:0 0 30px rgba(201,169,110,0.2);
+}
+
 </style>
 </head>
 <body>
+
 
 <!-- ══ ENVELOPE ══ -->
 <div id="envelope-scene">
@@ -486,6 +606,7 @@ footer{text-align:center;padding:3rem 0 4rem;font-family:var(--sans);font-size:0
 
 <!-- ══ INVITATION ══ -->
 <div id="invitation">
+<div class="gold-dust" id="goldDust"></div>
 <div class="page">
 
 <!-- HERO -->
@@ -635,7 +756,7 @@ footer{text-align:center;padding:3rem 0 4rem;font-family:var(--sans);font-size:0
     </div>
     <div class="story-text">
       <span class="story-chapter">She &nbsp;·&nbsp; Naveena A.S</span>
-      <p class="story-desc">A <em>beautiful, innocent and calm</em> young woman from the misty hills of Wayanad — a future teacher with a dancer's soul. She lives with her parents and younger brother, <em>quietly wondering</em> about the one she hasn't yet met.</p>
+      <p class="story-desc">A <em>beautiful, innocent and calm</em> young woman from the misty hills of Wayanad — a future teacher with a dancer's soul. She lives with her parents and younger brother, <em>quietly wondering</em> about the one she had yet to meet.</p>
     </div>
   </div>
 
@@ -736,7 +857,7 @@ footer{text-align:center;padding:3rem 0 4rem;font-family:var(--sans);font-size:0
     </div>
     <div class="story-text">
       <span class="story-chapter">He &nbsp;·&nbsp; Divendu Kannan</span>
-      <p class="story-desc">A <em>handsome, mature and calm</em> Software Engineer living in London — natively from Trivandrum. He loves to travel, work with data, and drive cars and bikes. A close family of five back home — his whole world, waiting to grow.</p>
+      <p class="story-desc">A <em>handsome, mature and calm</em> Software Engineer living in London — natively from Trivandrum. He loves to travel, work with data, and drive cars and bikes. A close family of five back home. His whole world, waiting to grow.</p>
     </div>
   </div>
 
@@ -906,7 +1027,7 @@ footer{text-align:center;padding:3rem 0 4rem;font-family:var(--sans);font-size:0
     </div>
     <div class="story-text">
       <span class="story-chapter">Connected</span>
-      <p class="story-desc">A video call — London to Wayanad. Twenty minutes of nerves, laughter and unexpected ease. When it ended, they both knew. <em>"Let's proceed."</em></p>
+      <p class="story-desc">A video call — London to Wayanad. Twenty minutes of nerves, laughter and unexpected ease. When it ended, they both knew. <em>Let's proceed.</em></p>
     </div>
   </div>
 
@@ -972,7 +1093,7 @@ footer{text-align:center;padding:3rem 0 4rem;font-family:var(--sans);font-size:0
     </div>
     <div class="story-text">
       <span class="story-chapter">The Journey Begins</span>
-      <p class="story-desc">Divendu boards a flight from London. Across time zones, over oceans — <em>heading home to Kerala</em>. This time, not just for family. For something more.</p>
+      <p class="story-desc">Divendu boards a flight from London. Across time zones, over oceans — <em>heading home to Kerala.</em> This time, not just for family. For something more.</p>
     </div>
   </div>
 
@@ -1016,30 +1137,47 @@ footer{text-align:center;padding:3rem 0 4rem;font-family:var(--sans);font-size:0
         <circle cx="120" cy="20" r="0.9" fill="#f5ead5" opacity="0.35"><animate attributeName="opacity" values="0.35;0.6;0.35" dur="2.2s" repeatCount="indefinite"/></circle>
         <!-- Animated car driving the road -->
         <g id="carGroup">
-          <animateMotion dur="6s" repeatCount="indefinite" rotate="auto-reverse">
+          <animateMotion dur="7s" repeatCount="indefinite" rotate="auto">
             <mpath href="#drivePath"/>
           </animateMotion>
-          <!-- Car shape from above/side perspective -->
-          <g transform="translate(-18,-8)">
-            <!-- Car body -->
-            <rect x="0" y="3" width="36" height="14" rx="3" fill="#c9a96e" opacity="0.88"/>
-            <!-- Cabin -->
-            <rect x="8" y="0" width="20" height="10" rx="3" fill="#c9a96e" opacity="0.78"/>
-            <!-- Windscreen glow -->
-            <rect x="10" y="1" width="16" height="7" rx="2" fill="#1a1848" opacity="0.8"/>
-            <rect x="10" y="1" width="16" height="7" rx="2" fill="#4a8eff" opacity="0.1"/>
-            <!-- Wheels -->
-            <circle cx="7" cy="17" r="4" fill="#1a1530"/>
-            <circle cx="29" cy="17" r="4" fill="#1a1530"/>
-            <circle cx="7" cy="17" r="2" fill="#c9a96e" opacity="0.5"/>
-            <circle cx="29" cy="17" r="2" fill="#c9a96e" opacity="0.5"/>
-            <!-- Headlights -->
-            <ellipse cx="2" cy="10" rx="3" ry="4" fill="#f5d060" opacity="0.5"/>
-            <!-- Headlight beam -->
-            <path d="M2,7 L-18,3 L-18,14 L2,12Z" fill="#f5d060" opacity="0.08"/>
+          <!-- Simple jeep side view: front right, tyres at bottom -->
+          <g>
+            <!-- Body -->
+            <rect x="-26" y="-14" width="52" height="18" rx="3" fill="#c9a96e" opacity="0.9"/>
+            <!-- Cabin / roof -->
+            <rect x="-18" y="-28" width="30" height="16" rx="2" fill="#b8922a" opacity="0.88"/>
+            <!-- Windshield -->
+            <rect x="8" y="-27" width="10" height="14" rx="1" fill="#1a2840" opacity="0.8"/>
+            <!-- Side window -->
+            <rect x="-16" y="-27" width="22" height="13" rx="1" fill="#1a2840" opacity="0.7"/>
+            <!-- Hood -->
+            <rect x="12" y="-14" width="14" height="8" rx="1" fill="#c9a96e" opacity="0.85"/>
+            <!-- Front face -->
+            <rect x="24" y="-12" width="4" height="10" rx="1" fill="#1a1220" opacity="0.85"/>
+            <!-- Headlight -->
+            <circle cx="25" cy="-10" r="3" fill="#f5d060" opacity="0.75"/>
+            <circle cx="25" cy="-10" r="1.5" fill="#fff" opacity="0.5"/>
+            <!-- Front bumper -->
+            <rect x="22" y="3" width="8" height="3" rx="1" fill="#906810" opacity="0.8"/>
+            <!-- Rear spare tyre -->
+            <circle cx="-28" cy="-5" r="9" fill="#1a1530"/>
+            <circle cx="-28" cy="-5" r="6" fill="#2a2240"/>
+            <circle cx="-28" cy="-5" r="3" fill="#c9a96e" opacity="0.4"/>
+            <!-- Front wheel -->
+            <circle cx="14" cy="10" r="11" fill="#1a1530"/>
+            <circle cx="14" cy="10" r="8" fill="#2a2240"/>
+            <circle cx="14" cy="10" r="3" fill="#c9a96e" opacity="0.5"/>
+            <circle cx="14" cy="10" r="10" fill="none" stroke="#0a0816" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.5"/>
+            <!-- Rear wheel -->
+            <circle cx="-12" cy="10" r="11" fill="#1a1530"/>
+            <circle cx="-12" cy="10" r="8" fill="#2a2240"/>
+            <circle cx="-12" cy="10" r="3" fill="#c9a96e" opacity="0.5"/>
+            <circle cx="-12" cy="10" r="10" fill="none" stroke="#0a0816" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.5"/>
+            <!-- Side step -->
+            <rect x="-22" y="4" width="44" height="2.5" rx="1" fill="#906810" opacity="0.55"/>
           </g>
         </g>
-        <!-- Invisible drive path -->
+        <!-- Invisible drive path --><!-- Invisible drive path --><!-- Invisible drive path -->
         <path id="drivePath" d="M0,228 Q60,218 120,214 Q180,210 240,200 Q290,192 340,185" fill="none"/>
         <!-- Milestone sign -->
         <g transform="translate(160,190)">
@@ -1053,7 +1191,7 @@ footer{text-align:center;padding:3rem 0 4rem;font-family:var(--sans);font-size:0
     </div>
     <div class="story-text">
       <span class="story-chapter">The Drive</span>
-      <p class="story-desc">He drives through the misty Western Ghats at dawn — winding roads, tea gardens, the scent of rain on earth. <em>Trivandrum to Wayanad.</em> The mountains welcome him.</p>
+      <p class="story-desc">He drives through the misty Western Ghats at dawn — Winding roads, tea gardens, the scent of rain on earth. Trivandrum to Wayanad. The mountains welcome him.</p>
     </div>
   </div>
 
@@ -1171,7 +1309,7 @@ footer{text-align:center;padding:3rem 0 4rem;font-family:var(--sans);font-size:0
     </div>
     <div class="story-text">
       <span class="story-chapter">The Families Meet</span>
-      <p class="story-desc">The families visited each other. Two homes, two families — and they loved what they found. <em>A warmth that felt like it had always been there.</em></p>
+      <p class="story-desc">The families visited each other. Two homes, two families. They loved what they found. <em>A warmth that felt like it had always been there.</em></p>
     </div>
   </div>
 
@@ -1232,7 +1370,7 @@ footer{text-align:center;padding:3rem 0 4rem;font-family:var(--sans);font-size:0
     </div>
     <div class="story-text">
       <span class="story-chapter">The First Meeting</span>
-      <p class="story-desc">He came to meet her in Wayanad. She was there. No more wondering — just a <em>quiet certainty</em>, warm and sure, settling gently between them.</p>
+      <p class="story-desc">He came to meet her in Wayanad. She was there. No more wondering — just a <em>quiet certainty</em>, warm and sure, that settled between them.</p>
     </div>
   </div>
 
@@ -1333,7 +1471,7 @@ footer{text-align:center;padding:3rem 0 4rem;font-family:var(--sans);font-size:0
     </div>
     <div class="story-text">
       <span class="story-chapter">Engaged &nbsp;·&nbsp; 12 September 2026</span>
-      <p class="story-desc">And so it was decided — at Dass Continental, Thrissur. <em>Two hearts, one beginning.</em> The rest is the story they will write together.</p>
+      <p class="story-desc">And so it was decided, at Dass Continental, Thrissur. <em>Two hearts, one beginning.</em> The rest is the story they will write together.</p>
     </div>
   </div>
 
@@ -1341,6 +1479,7 @@ footer{text-align:center;padding:3rem 0 4rem;font-family:var(--sans);font-size:0
   <div class="story-dots" id="storyDots">
     <span class="sdot active" data-i="0"></span><span class="sdot" data-i="1"></span><span class="sdot" data-i="2"></span><span class="sdot" data-i="3"></span><span class="sdot" data-i="4"></span><span class="sdot" data-i="5"></span><span class="sdot" data-i="6"></span><span class="sdot" data-i="7"></span><span class="sdot" data-i="8"></span>
   </div>
+  <div class="story-progress"><div class="story-progress-fill" id="storyProgressFill"></div></div>
   <p class="story-swipe-hint">Swipe or tap arrows to explore</p>
   <div class="story-nav">
     <button class="snav-btn" id="storyPrev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="#c9a96e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
@@ -1688,6 +1827,7 @@ document.getElementById('openBtn').addEventListener('click',()=>{
     cur=(i+cards.length)%cards.length;
     cards[cur].classList.add('active',dir>=0?'sin-r':'sin-l');
     dots[cur].classList.add('active');
+    if(window._updateStoryProgress) window._updateStoryProgress(cur);
   }
   document.getElementById('storyNext').addEventListener('click',()=>show(cur+1));
   document.getElementById('storyPrev').addEventListener('click',()=>show(cur-1));
@@ -1707,7 +1847,172 @@ function mPlay(){if(!mBuf||!mAC)return;if(mSN){try{mSN.stop();}catch(x){}}mSN=mA
 document.getElementById('openBtn').addEventListener('click',function mI(){document.getElementById('openBtn').removeEventListener('click',mI);mAC=new(window.AudioContext||window.webkitAudioContext)();mAC.resume();var bin=atob(mB64),bytes=new Uint8Array(bin.length);for(var i=0;i<bin.length;i++)bytes[i]=bin.charCodeAt(i);mAC.decodeAudioData(bytes.buffer,function(buf){mBuf=buf;mPlay();if(mBtn)mBtn.classList.add('on');});});
 if(mBtn)mBtn.addEventListener('click',function(){if(!mGN||!mAC)return;if(mBtn.classList.contains('pl')){mGN.gain.linearRampToValueAtTime(0.001,mAC.currentTime+0.4);setTimeout(function(){if(mSN){try{mSN.stop();}catch(x){}}mBtn.classList.remove('pl');},450);}else{mPlay();}});
 
+
+// ══ PREMIUM ENHANCEMENTS ══
+
+
+// ── CUSTOM CURSOR ──
+(function(){
+  const cur = document.getElementById('customCursor');
+  const dot = document.getElementById('cursorDot');
+  if(!cur||!dot) return;
+  let cx=0,cy=0,tx=0,ty=0;
+  document.addEventListener('mousemove',e=>{ tx=e.clientX; ty=e.clientY; dot.style.left=tx+'px'; dot.style.top=ty+'px'; },{passive:true});
+  (function ani(){
+    cx+=(tx-cx)*0.12; cy+=(ty-cy)*0.12;
+    cur.style.left=cx+'px'; cur.style.top=cy+'px';
+    requestAnimationFrame(ani);
+  })();
+  document.querySelectorAll('button,a,[role="button"]').forEach(el=>{
+    el.addEventListener('mouseenter',()=>cur.classList.add('hover'));
+    el.addEventListener('mouseleave',()=>cur.classList.remove('hover'));
+  });
+})();
+
+// ── DEVICE TILT PARALLAX ──
+(function(){
+  const canvas = document.getElementById('starCanvas');
+  if(!canvas||!window.DeviceOrientationEvent) return;
+  let bx=0,by=0;
+  window.addEventListener('deviceorientation',e=>{
+    bx = (e.gamma||0)/90 * 8;
+    by = (e.beta||0)/90  * 5;
+  },{passive:true});
+  // Override star positions with tilt bias applied in draw loop
+  window._tiltX = ()=>bx;
+  window._tiltY = ()=>by;
+})();
+
+// ── STORY PROGRESS BAR ──
+(function(){
+  const fill = document.getElementById('storyProgressFill');
+  if(!fill) return;
+  const total = document.querySelectorAll('.story-card').length;
+  window._updateStoryProgress = function(cur){
+    fill.style.width = ((cur+1)/total*100)+'%';
+  };
+  window._updateStoryProgress(0);
+})();
+
+// ── NAME HALO PARTICLES ──
+(function(){
+  const names = document.querySelectorAll('.name-hero');
+  names.forEach(el=>{
+    const wrap = document.createElement('div');
+    wrap.className='name-halo';
+    el.style.position='relative';
+    for(let i=0;i<18;i++){
+      const s=document.createElement('span');
+      const angle=Math.random()*Math.PI*2;
+      const dist=40+Math.random()*80;
+      s.style.cssText=`--tx:${Math.cos(angle)*dist}px;--ty:${Math.sin(angle)*dist}px;`+
+        `left:${20+Math.random()*60}%;top:${20+Math.random()*60}%;`+
+        `animation-duration:${1.5+Math.random()*2}s;`+
+        `animation-delay:${Math.random()*1.5}s;`+
+        `width:${1+Math.random()*2}px;height:${1+Math.random()*2}px;`;
+      wrap.appendChild(s);
+    }
+    el.appendChild(wrap);
+    // Trigger on element becoming visible
+    const obs=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ wrap.style.display='block'; obs.disconnect(); } });
+    },{threshold:0.5});
+    obs.observe(el);
+  });
+})();
+
+// ── PARALLAX on hero elements ──
+(function(){
+  const page=document.querySelector('.page');
+  if(!page) return;
+  window.addEventListener('scroll',()=>{
+    const sy=window.scrollY;
+    const layers=page.querySelectorAll('[data-parallax]');
+    layers.forEach(el=>{
+      const speed=parseFloat(el.dataset.parallax)||0.3;
+      el.style.transform=`translateY(${sy*speed}px)`;
+    });
+  },{passive:true});
+})();
+
+
+// ══ CINEMATIC PREMIUM JS ══
+
+
+// ── AMBIENT GOLD DUST (very subtle floating motes in bg) ──
+(function(){
+  const container = document.getElementById('goldDust');
+  if(!container) return;
+  function spawnDust(){
+    const p = document.createElement('div');
+    p.className='gold-dust-p';
+    const sz = Math.random()*2+0.5;
+    p.style.cssText=[
+      'width:'+sz+'px','height:'+sz+'px',
+      'left:'+(Math.random()*100)+'%',
+      'animation-duration:'+(12+Math.random()*18)+'s',
+      'animation-delay:'+(Math.random()*8)+'s',
+      'opacity:0',
+    ].join(';');
+    container.appendChild(p);
+    setTimeout(()=>p.remove(), 30000);
+  }
+  // Only spawn after invitation opens
+  document.addEventListener('invitationOpen2', ()=>{
+    for(let i=0;i<8;i++) setTimeout(spawnDust, i*400);
+    setInterval(spawnDust, 2500);
+  });
+})();
+
+// ── SMOOTH PARALLAX with requestAnimationFrame ──
+(function(){
+  let ticking=false, lastScroll=0;
+  const hero=document.querySelector('.page');
+  if(!hero) return;
+  window.addEventListener('scroll',()=>{
+    lastScroll=window.scrollY;
+    if(!ticking){
+      requestAnimationFrame(()=>{
+        // Subtle name float on scroll
+        const names=hero.querySelectorAll('.name-hero.go');
+        names.forEach(n=>{
+          const speed=0.08;
+          n.style.transform=`translateY(${lastScroll*speed}px)`;
+        });
+        ticking=false;
+      });
+      ticking=true;
+    }
+  },{passive:true});
+})();
+
+// ── DISPATCH invitationOpen2 when invitation reveals ──
+(function(){
+  const inv=document.getElementById('invitation');
+  if(!inv) return;
+  const obs=new MutationObserver(()=>{
+    if(inv.classList.contains('visible')){
+      document.dispatchEvent(new Event('invitationOpen2'));
+      obs.disconnect();
+    }
+  });
+  obs.observe(inv,{attributes:true,attributeFilter:['class']});
+})();
+
+// ── STORY CARD: add shimmer particle on transition ──
+(function(){
+  const track=document.getElementById('storyTrack');
+  if(!track) return;
+  track.addEventListener('click',()=>{
+    const flash=document.createElement('div');
+    flash.style.cssText='position:absolute;inset:0;background:rgba(201,169,110,0.04);pointer-events:none;z-index:10;animation:sinR 0.3s ease both;';
+    track.appendChild(flash);
+    setTimeout(()=>flash.remove(),400);
+  });
+})();
+
 </script>
 <button id="mBtn"><svg class="mbp" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21" fill="#c9a96e"/></svg><svg class="mbs" viewBox="0 0 24 24"><rect x="5" y="3" width="4" height="18" rx="1" fill="#c9a96e"/><rect x="15" y="3" width="4" height="18" rx="1" fill="#c9a96e"/></svg></button>
+<div id="customCursor"></div><div id="cursorDot"></div>
 </body>
 </html>
